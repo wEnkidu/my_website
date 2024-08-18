@@ -20,6 +20,7 @@
             padding: 10px 0;
             text-align: center;
             transition: background-color 0.3s;
+            position: relative;
         }
         header h1 {
             margin: 0;
@@ -105,13 +106,30 @@
         .contact-form button.dark-mode {
             background: #555;
         }
+
+        /* Dark Mode Toggle Icon */
+        .dark-mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .dark-mode-toggle img {
+            width: 30px;
+            height: 30px;
+            transition: opacity 0.3s;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Dein Name</h1>
         <p>Informatiker & Entwickler</p>
-        <button onclick="toggleDarkMode()">Dark Mode umschalten</button>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+            <img id="mode-icon" src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" alt="Sonne Icon">
+        </button>
     </header>
 
     <nav>
@@ -182,9 +200,20 @@
 
     <script>
         function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            body.classList.toggle('dark-mode');
             document.querySelectorAll('header, section, .skills ul li, .contact-form input, .contact-form textarea, .contact-form button')
                 .forEach(el => el.classList.toggle('dark-mode'));
+
+            // Bild ändern
+            if (body.classList.contains('dark-mode')) {
+                modeIcon.src = "https://cdn-icons-png.flaticon.com/512/740/740878.png"; // Mond Icon
+                modeIcon.alt = "Mond Icon";
+            } else {
+                modeIcon.src = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png"; // Sonne Icon
+                modeIcon.alt = "Sonne Icon";
+            }
         }
     </script>
 </body>
