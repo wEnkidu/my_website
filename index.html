@@ -12,12 +12,14 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
         }
         header {
             background-color: #007bff;
             color: white;
             padding: 10px 0;
             text-align: center;
+            transition: background-color 0.3s;
         }
         header h1 {
             margin: 0;
@@ -40,6 +42,7 @@
             max-width: 1000px;
             background: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s;
         }
         h2 {
             color: #007bff;
@@ -78,12 +81,37 @@
             padding: 10px 0;
             margin-top: 20px;
         }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        header.dark-mode {
+            background-color: #1f1f1f;
+        }
+        section.dark-mode {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        .skills ul li.dark-mode {
+            background: #333;
+        }
+        .contact-form input.dark-mode, .contact-form textarea.dark-mode {
+            background: #333;
+            color: #e0e0e0;
+            border: 1px solid #555;
+        }
+        .contact-form button.dark-mode {
+            background: #555;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Dein Name</h1>
         <p>Informatiker & Entwickler</p>
+        <button onclick="toggleDarkMode()">Dark Mode umschalten</button>
     </header>
 
     <nav>
@@ -151,5 +179,13 @@
     <footer>
         <p>&copy; 2024 Dein Name. Alle Rechte vorbehalten.</p>
     </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelectorAll('header, section, .skills ul li, .contact-form input, .contact-form textarea, .contact-form button')
+                .forEach(el => el.classList.toggle('dark-mode'));
+        }
+    </script>
 </body>
 </html>
