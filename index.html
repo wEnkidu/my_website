@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Spitzli - Application Manager</title>
+    <title>Deine Persönliche Webseite</title>
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
@@ -125,8 +125,8 @@
 </head>
 <body>
     <header>
-        <h1>Kevin Spitzli</h1>
-        <p>Application Manager</p>
+        <h1>Dein Name</h1>
+        <p>Informatiker & Entwickler</p>
         <button class="dark-mode-toggle" onclick="toggleDarkMode()">
             <img id="mode-icon" src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" alt="Sonne Icon">
         </button>
@@ -143,7 +143,7 @@
 
     <section id="biografie">
         <h2>Biografie</h2>
-        <p>Ich bin ein begeisteter Informatiker mit einer Leidenschaft für Technologie. Meine Interesse begann bereits in jungen Jahren. Mit einem Studium der Wirtschaftsinformatik möchte ich mich derzeit Weiterbilden und Fuss in der Informatik fassen. Ich habe an zahlreichen privaten wie auch beruflichen Projekten gearbeitet.</p>
+        <p>Ich bin ein erfahrener Informatiker mit einer Leidenschaft für Technologie und Innovation. Meine Karriere begann mit einem Studium der Informatik, gefolgt von mehreren Jahren in der Softwareentwicklung und IT-Beratung. Ich habe an zahlreichen Projekten gearbeitet, die von kleinen Anwendungen bis hin zu komplexen Unternehmenslösungen reichen.</p>
     </section>
 
     <section id="faehigkeiten">
@@ -151,9 +151,10 @@
         <div class="skills">
             <ul>
                 <li>Programmierung: Python, JavaScript, C++</li>
-                <li>Webentwicklung: HTML, CSS, JavaScript</li>
+                <li>Webentwicklung: HTML, CSS, JavaScript, React</li>
                 <li>Software-Architektur und Design</li>
-                <li>Projektmitarbeit</li>
+                <li>Projektmanagement und Teamführung</li>
+                <li>Cloud-Technologien: AWS, Azure</li>
             </ul>
         </div>
     </section>
@@ -170,7 +171,7 @@
 
     <section id="hobbys">
         <h2>Hobbys</h2>
-        <p>In meiner Freizeit genieße ich es, an Open-Source-Projekten zu arbeiten, zu wandern und neue Technologien zu erkunden.</p>
+        <p>In meiner Freizeit genieße ich es, an Open-Source-Projekten zu arbeiten, zu wandern und neue Technologien zu erkunden. Ich bin auch ein begeisterter Gamer und interessiere mich für künstliche Intelligenz und Machine Learning.</p>
     </section>
 
     <section id="kontakt">
@@ -194,26 +195,65 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Kevin Spitzli. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2024 Dein Name. Alle Rechte vorbehalten.</p>
     </footer>
 
     <script>
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+            const cname = name + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cname) === 0) {
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+        }
+
         function toggleDarkMode() {
             const body = document.body;
             const modeIcon = document.getElementById('mode-icon');
-            body.classList.toggle('dark-mode');
+            const darkModeEnabled = body.classList.toggle('dark-mode');
             document.querySelectorAll('header, section, .skills ul li, .contact-form input, .contact-form textarea, .contact-form button')
                 .forEach(el => el.classList.toggle('dark-mode'));
 
             // Bild ändern
-            if (body.classList.contains('dark-mode')) {
+            if (darkModeEnabled) {
                 modeIcon.src = "https://cdn-icons-png.flaticon.com/512/740/740878.png"; // Mond Icon
                 modeIcon.alt = "Mond Icon";
+                setCookie("darkMode", "enabled", 365);
             } else {
                 modeIcon.src = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png"; // Sonne Icon
                 modeIcon.alt = "Sonne Icon";
+                setCookie("darkMode", "disabled", 365);
             }
         }
+
+        function checkDarkMode() {
+            const darkMode = getCookie("darkMode");
+            if (darkMode === "enabled") {
+                document.body.classList.add('dark-mode');
+                document.querySelectorAll('header, section, .skills ul li, .contact-form input, .contact-form textarea, .contact-form button')
+                    .forEach(el => el.classList.add('dark-mode'));
+                document.getElementById('mode-icon').src = "https://cdn-icons-png.flaticon.com/512/740/740878.png"; // Mond Icon
+                document.getElementById('mode-icon').alt = "Mond Icon";
+            }
+        }
+
+        // Überprüfen, ob der Dark Mode aktiviert ist
+        window.onload = checkDarkMode;
     </script>
 </body>
 </html>
