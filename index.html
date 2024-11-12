@@ -3,99 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Webseite</title>
+    <title>Deine Persönliche Webseite</title>
     <style>
         /* Basis- und Styling-Einstellungen */
         body {
-            font-family: 'Open Sans', sans-serif; /* Schriftart für den gesamten Body */
-            background-color: #f4f4f4; /* Hintergrundfarbe */
-            color: #333; /* Textfarbe */
-            margin: 0; /* Kein Abstand an den Rändern */
-            padding: 0; /* Kein Innenabstand */
-            line-height: 1.6; /* Zeilenhöhe für bessere Lesbarkeit */
-            transition: background-color 0.3s, color 0.3s; /* Übergang für Hintergrundfarbe und Textfarbe */
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f4; /* Hintergrundfarbe für den Light Mode */
+            color: #333; /* Textfarbe für den Light Mode */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s; /* Sanfter Übergang für Dark Mode */
         }
-
         header {
-            background-color: #007bff; /* Hintergrundfarbe des Headers */
-            color: white; /* Textfarbe im Header */
-            padding: 10px 0; /* Innenabstand oben und unten */
-            text-align: center; /* Text zentrieren */
-            position: relative; /* Position für spätere Platzierung von Elementen */
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
         }
-
         header h1 {
-            margin: 0; /* Kein Abstand um das h1-Element */
-            font-size: 2.5em; /* Schriftgröße des Haupttitels */
+            margin: 0;
+            font-size: 2.5em;
         }
-
         nav {
-            background: #333; /* Dunkle Hintergrundfarbe für die Navigation */
-            padding: 10px; /* Innenabstand für Navigation */
-            text-align: center; /* Text zentrieren */
+            background: #333;
+            padding: 10px;
+            text-align: center;
         }
-
         nav a {
-            color: white; /* Textfarbe der Links in der Navigation */
-            margin: 0 15px; /* Abstand zwischen den Links */
-            text-decoration: none; /* Keine Unterstreichung der Links */
-            font-size: 1.2em; /* Schriftgröße der Links */
-            transition: color 0.3s; /* Sanfter Übergang bei Farbänderungen */
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
         }
-
         nav a:hover {
-            color: #ffdf00; /* Farbe der Links bei Hover (wenn die Maus darüber schwebt) */
+            color: #ffdf00; /* Hover-Effekt */
         }
-
         section {
-            padding: 20px; /* Innenabstand für den Inhalt */
-            margin: 20px auto; /* Abstand nach außen und zentriert */
-            max-width: 1000px; /* Maximale Breite der Sektionen */
-            background: white; /* Hintergrundfarbe der Sektionen */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Schlagschatten für Tiefe */
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1000px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
         h2 {
-            color: #007bff; /* Farbe der Überschriften in den Sektionen */
-            margin-top: 0; /* Kein Abstand oben bei den h2-Elementen */
+            color: #007bff;
+            margin-top: 0;
         }
-
         .skills ul {
-            list-style-type: none; /* Keine Aufzählungszeichen */
-            padding: 0; /* Kein Innenabstand */
+            list-style-type: none;
+            padding: 0;
         }
-
         .skills ul li {
-            background: #007bff; /* Hintergrundfarbe der Listenelemente */
-            color: white; /* Textfarbe der Listenelemente */
-            margin: 5px 0; /* Abstand zwischen den Listenelementen */
-            padding: 10px; /* Innenabstand der Listenelemente */
-            border-radius: 5px; /* Abgerundete Ecken der Listenelemente */
+            background: #007bff;
+            color: white;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
         }
-
         .contact-form input, .contact-form textarea {
-            width: 100%; /* Volle Breite für Eingabefelder */
-            padding: 10px; /* Innenabstand */
-            margin: 10px 0; /* Abstand oben und unten */
-            border: 1px solid #ccc; /* Randfarbe */
-            border-radius: 5px; /* Abgerundete Ecken */
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-
         .contact-form button {
-            background: #007bff; /* Hintergrundfarbe des Buttons */
-            color: white; /* Textfarbe des Buttons */
-            padding: 10px; /* Innenabstand im Button */
-            border: none; /* Kein Rand für den Button */
-            border-radius: 5px; /* Abgerundete Ecken des Buttons */
-            cursor: pointer; /* Zeigt an, dass der Button klickbar ist */
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
-
         footer {
-            background: #333; /* Hintergrundfarbe des Footers */
-            color: white; /* Textfarbe im Footer */
-            text-align: center; /* Text zentrieren */
-            padding: 10px 0; /* Innenabstand oben und unten im Footer */
-            margin-top: 20px; /* Abstand oben zwischen Footer und anderen Elementen */
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        /* Dark Mode-Stile */
+        body.darkmode {
+            background-color: #121212; /* Dunkler Hintergrund für Dark Mode */
+            color: #e0e0e0; /* Helle Schriftfarbe im Dark Mode */
+        }
+        header.darkmode {
+            background-color: #333; /* Dunkleres Header für Dark Mode */
+        }
+        nav.darkmode {
+            background-color: #222; /* Dunkleres Navigation für Dark Mode */
+        }
+        section.darkmode {
+            background-color: #1e1e1e; /* Dunkleres Hintergrund für Sektionen */
+            color: #e0e0e0; /* Helle Schriftfarbe für Sektionen */
+        }
+        .skills ul li.darkmode {
+            background: #333; /* Dunkler Hintergrund für Skills im Dark Mode */
+        }
+        .contact-form input.darkmode, .contact-form textarea.darkmode {
+            background: #333; /* Dunkler Hintergrund für Formulareingabefelder */
+            color: #e0e0e0; /* Helle Schriftfarbe für Formulareingabefelder */
+            border: 1px solid #555; /* Dunklere Border im Dark Mode */
+        }
+        .contact-form button.darkmode {
+            background: #555; /* Dunkler Button für den Dark Mode */
+        }
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.5em;
+        }
+        .dark-mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .dark-mode-toggle img {
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
@@ -103,6 +139,10 @@
     <header>
         <h1>Kevin Michael Spitzli</h1>
         <p>Application Manager</p>
+        <!-- Button zum Umschalten des Dark Modes -->
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+            <img id="mode-icon" src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" alt="Sonne Icon">
+        </button>
     </header>
 
     <nav>
@@ -113,13 +153,11 @@
         <a href="#kontakt">Kontakt</a>
     </nav>
 
-    <!-- Biografie-Sektion -->
     <section id="biografie">
         <h2>Biografie</h2>
         <p>Ich bin ein Informatiker mit einer Leidenschaft für Technologie und Innovation. Meine Karriere in der IT begann mit einem Praktikum. Mittlerweile bin ich Application Manager und mache Berufsbegleitend ein Studium der Wirtschaftsinformatik.</p>
     </section>
 
-    <!-- Fähigkeiten-Sektion -->
     <section id="faehigkeiten">
         <h2>Berufliche Fähigkeiten</h2>
         <div class="skills">
@@ -135,7 +173,6 @@
         </div>
     </section>
 
-    <!-- Projekte-Sektion -->
     <section id="projekte">
         <h2>Projekte</h2>
         <p>Hier sind einige der Projekte, an denen ich gearbeitet habe:</p>
@@ -146,40 +183,84 @@
         </ul>
     </section>
 
-    <!-- Hobbys-Sektion -->
     <section id="hobbys">
         <h2>Hobbys</h2>
         <p>In meiner Freizeit genieße ich es, an Open-Source-Projekten zu arbeiten, zu wandern und neue Technologien zu erkunden.</p>
-        <p>Die Möglichkeit, mein Wissen durch die Realisierung anspruchsvoller Projekte wie dieser Website kontinuierlich zu erweitern, empfinde ich als außerordentlich bereichernd.</p>
     </section>
 
-    <!-- Kontakt-Sektion -->
     <section id="kontakt">
         <h2>Kontakt</h2>
-        <!-- Kontaktformular -->
-        <form class="contact-form" onsubmit="sendEmail(event)">
+        <form class="contact-form">
             <textarea name="message" rows="5" placeholder="Deine Nachricht" required></textarea>
             <button type="submit">Absenden</button>
         </form>
     </section>
+
+    <!-- Social Media Links -->
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/dein-profil" target="_blank">LinkedIn</a>
+        <a href="https://github.com/dein-profil" target="_blank">GitHub</a>
+        <a href="https://twitter.com/dein-profil" target="_blank">Twitter</a>
+    </div>
 
     <footer>
         <p>&copy; 2024 Kevin Michael Spitzli. Alle Rechte vorbehalten.</p>
     </footer>
 
     <script>
-        /* Funktion zum Versenden der E-Mail */
-        function sendEmail(event) {
-            event.preventDefault(); // Verhindert das Standardverhalten des Formulars (Seitenneuladen)
-            
-            // Erhalte die Eingabewerte
-            const message = event.target.message.value;
-            
-            // Erstelle den Betreff für die E-Mail
-            const subject = "Kontaktanfrage";
-            
-            // Öffne das E-Mail-Programm und übergebe die Nachricht
-            window.location.href = `mailto:kevin.spitzli@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+        // Funktion zum Umschalten des Dark Modes
+        function toggleDarkMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            const darkModeEnabled = body.classList.toggle('darkmode');
+            document.querySelectorAll('header, nav, section, .skills ul li, .contact-form input, .contact-form textarea, .contact-form button')
+                .forEach(el => el.classList.toggle('darkmode'));
+
+            // Speichern des Dark Mode Status in einem Cookie
+            if (darkModeEnabled) {
+                modeIcon.src = "https://cdn-icons-png.flaticon.com/512/740/740878.png"; // Mond Icon
+                modeIcon.alt = "Mond Icon";
+                setCookie("darkMode", "enabled", 365);
+            } else {
+                modeIcon.src = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png"; // Sonne Icon
+                modeIcon.alt = "Sonne Icon";
+                setCookie("darkMode", "disabled", 365);
+            }
+        }
+
+        // Funktion zum Setzen eines Cookies
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // Funktion zum Abrufen eines Cookies
+        function getCookie(name) {
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        // Überprüfen, ob der Dark Mode Cookie gesetzt wurde und den Zustand wiederherstellen
+        window.onload = function() {
+            const darkMode = getCookie("darkMode");
+            if (darkMode === "enabled") {
+                document.body.classList.add('darkmode');
+                document.querySelectorAll('header, nav, section, .skills ul li, .contact-form input, .contact-form textarea, .contact-form button')
+                    .forEach(el => el.classList.add('darkmode'));
+                document.getElementById('mode-icon').src = "https://cdn-icons-png.flaticon.com/512/740/740878.png"; // Mond Icon
+            }
         }
     </script>
 </body>
