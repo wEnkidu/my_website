@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deine Persönliche Webseite</title>
     <style>
+        /* Basis- und Styling-Einstellungen */
         body {
             font-family: 'Open Sans', sans-serif;
             background-color: #f4f4f4;
@@ -19,7 +20,6 @@
             color: white;
             padding: 10px 0;
             text-align: center;
-            transition: background-color 0.3s;
             position: relative;
         }
         header h1 {
@@ -36,6 +36,10 @@
             margin: 0 15px;
             text-decoration: none;
             font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffdf00; /* Hover-Effekt */
         }
         section {
             padding: 20px;
@@ -43,7 +47,6 @@
             max-width: 1000px;
             background: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, color 0.3s;
         }
         h2 {
             color: #007bff;
@@ -82,54 +85,12 @@
             padding: 10px 0;
             margin-top: 20px;
         }
-
-        /* Dark Mode Styles */
-        body.dark-mode {
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-        header.dark-mode {
-            background-color: #1f1f1f;
-        }
-        section.dark-mode {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-        }
-        .skills ul li.dark-mode {
-            background: #333;
-        }
-        .contact-form input.dark-mode, .contact-form textarea.dark-mode {
-            background: #333;
-            color: #e0e0e0;
-            border: 1px solid #555;
-        }
-        .contact-form button.dark-mode {
-            background: #555;
-        }
-
-        /* Dark Mode Toggle Icon */
-        .dark-mode-toggle {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .dark-mode-toggle img {
-            width: 30px;
-            height: 30px;
-            transition: opacity 0.3s;
-        }
     </style>
 </head>
 <body>
     <header>
         <h1>Kevin Michael Spitzli</h1>
         <p>Application Manager</p>
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
-            <img id="mode-icon" src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" alt="Sonne Icon">
-        </button>
     </header>
 
     <nav>
@@ -138,7 +99,6 @@
         <a href="#projekte">Projekte</a>
         <a href="#hobbys">Hobbys</a>
         <a href="#kontakt">Kontakt</a>
-        <a href="#portfolio">Portfolio</a>
     </nav>
 
     <section id="biografie">
@@ -154,6 +114,9 @@
                 <li>Webentwicklung: HTML, CSS, JavaScript</li>
                 <li>Software- und Datenbankarchitektur</li>
                 <li>Projektmanagement</li>
+                <li>Datenanalyse und -visualisierung</li>
+                <li>IT-Management</li>
+                <li>Wirtschaftliche Analyse und Prozessoptimierung</li>
             </ul>
         </div>
     </section>
@@ -175,7 +138,7 @@
 
     <section id="kontakt">
         <h2>Kontakt</h2>
-        <form class="contact-form">
+        <form class="contact-form" onsubmit="sendEmail(event)">
             <input type="email" name="email" placeholder="Deine E-Mail" required>
             <textarea name="message" rows="5" placeholder="Deine Nachricht" required></textarea>
             <button type="submit">Absenden</button>
@@ -187,61 +150,13 @@
     </footer>
 
     <script>
-        function setCookie(name, value, days) {
-            const d = new Date();
-            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-            const expires = "expires=" + d.toUTCString();
-            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        function sendEmail(event) {
+            event.preventDefault();
+            const email = event.target.email.value;
+            const message = event.target.message.value;
+            const subject = "Kontaktanfrage von der Webseite";
+            window.location.href = `mailto:deineemail@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
         }
-
-        function getCookie(name) {
-            const cname = name + "=";
-            const decodedCookie = decodeURIComponent(document.cookie);
-            const ca = decodedCookie.split(';');
-            for(let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(cname) === 0) {
-                    return c.substring(cname.length, c.length);
-                }
-            }
-            return "";
-        }
-
-        function toggleDarkMode() {
-            const body = document.body;
-            const modeIcon = document.getElementById('mode-icon');
-            const darkModeEnabled = body.classList.toggle('dark-mode');
-            document.querySelectorAll('header, section, .skills ul li, .contact-form input, .contact-form textarea, .contact-form button')
-                .forEach(el => el.classList.toggle('dark-mode'));
-
-            // Bild ändern
-            if (darkModeEnabled) {
-                modeIcon.src = "https://cdn-icons-png.flaticon.com/512/740/740878.png"; // Mond Icon
-                modeIcon.alt = "Mond Icon";
-                setCookie("darkMode", "enabled", 365);
-            } else {
-                modeIcon.src = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png"; // Sonne Icon
-                modeIcon.alt = "Sonne Icon";
-                setCookie("darkMode", "disabled", 365);
-            }
-        }
-
-        function checkDarkMode() {
-            const darkMode = getCookie("darkMode");
-            if (darkMode === "enabled") {
-                document.body.classList.add('dark-mode');
-                document.querySelectorAll('header, section, .skills ul li, .contact-form input, .contact-form textarea, .contact-form button')
-                    .forEach(el => el.classList.add('dark-mode'));
-                document.getElementById('mode-icon').src = "https://cdn-icons-png.flaticon.com/512/740/740878.png"; // Mond Icon
-                document.getElementById('mode-icon').alt = "Mond Icon";
-            }
-        }
-
-        // Überprüfen, ob der Dark Mode aktiviert ist
-        window.onload = checkDarkMode;
     </script>
 </body>
 </html>
