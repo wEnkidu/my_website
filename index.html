@@ -7,83 +7,95 @@
     <style>
         /* Basis- und Styling-Einstellungen */
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Open Sans', sans-serif; /* Schriftart für den gesamten Body */
+            background-color: #f4f4f4; /* Hintergrundfarbe */
+            color: #333; /* Textfarbe */
+            margin: 0; /* Kein Abstand an den Rändern */
+            padding: 0; /* Kein Innenabstand */
+            line-height: 1.6; /* Zeilenhöhe für bessere Lesbarkeit */
+            transition: background-color 0.3s, color 0.3s; /* Übergang für Hintergrundfarbe und Textfarbe */
         }
+
         header {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            position: relative;
+            background-color: #007bff; /* Hintergrundfarbe des Headers */
+            color: white; /* Textfarbe im Header */
+            padding: 10px 0; /* Innenabstand oben und unten */
+            text-align: center; /* Text zentrieren */
+            position: relative; /* Position für spätere Platzierung von Elementen */
         }
+
         header h1 {
-            margin: 0;
-            font-size: 2.5em;
+            margin: 0; /* Kein Abstand um das h1-Element */
+            font-size: 2.5em; /* Schriftgröße des Haupttitels */
         }
+
         nav {
-            background: #333;
-            padding: 10px;
-            text-align: center;
+            background: #333; /* Dunkle Hintergrundfarbe für die Navigation */
+            padding: 10px; /* Innenabstand für Navigation */
+            text-align: center; /* Text zentrieren */
         }
+
         nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: color 0.3s;
+            color: white; /* Textfarbe der Links in der Navigation */
+            margin: 0 15px; /* Abstand zwischen den Links */
+            text-decoration: none; /* Keine Unterstreichung der Links */
+            font-size: 1.2em; /* Schriftgröße der Links */
+            transition: color 0.3s; /* Sanfter Übergang bei Farbänderungen */
         }
+
         nav a:hover {
-            color: #ffdf00; /* Hover-Effekt */
+            color: #ffdf00; /* Farbe der Links bei Hover (wenn die Maus darüber schwebt) */
         }
+
         section {
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 1000px;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px; /* Innenabstand für den Inhalt */
+            margin: 20px auto; /* Abstand nach außen und zentriert */
+            max-width: 1000px; /* Maximale Breite der Sektionen */
+            background: white; /* Hintergrundfarbe der Sektionen */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Schlagschatten für Tiefe */
         }
+
         h2 {
-            color: #007bff;
-            margin-top: 0;
+            color: #007bff; /* Farbe der Überschriften in den Sektionen */
+            margin-top: 0; /* Kein Abstand oben bei den h2-Elementen */
         }
+
         .skills ul {
-            list-style-type: none;
-            padding: 0;
+            list-style-type: none; /* Keine Aufzählungszeichen */
+            padding: 0; /* Kein Innenabstand */
         }
+
         .skills ul li {
-            background: #007bff;
-            color: white;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
+            background: #007bff; /* Hintergrundfarbe der Listenelemente */
+            color: white; /* Textfarbe der Listenelemente */
+            margin: 5px 0; /* Abstand zwischen den Listenelementen */
+            padding: 10px; /* Innenabstand der Listenelemente */
+            border-radius: 5px; /* Abgerundete Ecken der Listenelemente */
         }
+
         .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            width: 100%; /* Volle Breite für Eingabefelder */
+            padding: 10px; /* Innenabstand */
+            margin: 10px 0; /* Abstand oben und unten */
+            border: 1px solid #ccc; /* Randfarbe */
+            border-radius: 5px; /* Abgerundete Ecken */
         }
+
         .contact-form button {
-            background: #007bff;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            background: #007bff; /* Hintergrundfarbe des Buttons */
+            color: white; /* Textfarbe des Buttons */
+            padding: 10px; /* Innenabstand im Button */
+            border: none; /* Kein Rand für den Button */
+            border-radius: 5px; /* Abgerundete Ecken des Buttons */
+            cursor: pointer; /* Zeigt an, dass der Button klickbar ist */
         }
+
         footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
+            background: #333; /* Hintergrundfarbe des Footers */
+            color: white; /* Textfarbe im Footer */
+            text-align: center; /* Text zentrieren */
+            padding: 10px 0; /* Innenabstand oben und unten im Footer */
+            margin-top: 20px; /* Abstand oben zwischen Footer und anderen Elementen */
         }
     </style>
 </head>
@@ -101,11 +113,13 @@
         <a href="#kontakt">Kontakt</a>
     </nav>
 
+    <!-- Biografie-Sektion -->
     <section id="biografie">
         <h2>Biografie</h2>
         <p>Ich bin ein Informatiker mit einer Leidenschaft für Technologie und Innovation. Meine Karriere in der IT begann mit einem Praktikum. Mittlerweile bin ich Application Manager und mache Berufsbegleitend ein Studium der Wirtschaftsinformatik.</p>
     </section>
 
+    <!-- Fähigkeiten-Sektion -->
     <section id="faehigkeiten">
         <h2>Berufliche Fähigkeiten</h2>
         <div class="skills">
@@ -121,6 +135,7 @@
         </div>
     </section>
 
+    <!-- Projekte-Sektion -->
     <section id="projekte">
         <h2>Projekte</h2>
         <p>Hier sind einige der Projekte, an denen ich gearbeitet habe:</p>
@@ -131,15 +146,17 @@
         </ul>
     </section>
 
+    <!-- Hobbys-Sektion -->
     <section id="hobbys">
         <h2>Hobbys</h2>
         <p>In meiner Freizeit genieße ich es, an Open-Source-Projekten zu arbeiten, zu wandern und neue Technologien zu erkunden.</p>
     </section>
 
+    <!-- Kontakt-Sektion -->
     <section id="kontakt">
         <h2>Kontakt</h2>
+        <!-- Kontaktformular -->
         <form class="contact-form" onsubmit="sendEmail(event)">
-            <input type="email" name="email" placeholder="Deine E-Mail" required>
             <textarea name="message" rows="5" placeholder="Deine Nachricht" required></textarea>
             <button type="submit">Absenden</button>
         </form>
@@ -150,12 +167,18 @@
     </footer>
 
     <script>
+        /* Funktion zum Versenden der E-Mail */
         function sendEmail(event) {
-            event.preventDefault();
-            const email = event.target.email.value;
+            event.preventDefault(); // Verhindert das Standardverhalten des Formulars (Seitenneuladen)
+            
+            // Erhalte die Eingabewerte
             const message = event.target.message.value;
-            const subject = "Kontaktanfrage von der Webseite";
-            window.location.href = `mailto:deineemail@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+            
+            // Erstelle den Betreff für die E-Mail
+            const subject = "Kontaktanfrage";
+            
+            // Öffne das E-Mail-Programm und übergebe die Nachricht
+            window.location.href = `mailto:kevin.spitzli@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
         }
     </script>
 </body>
