@@ -57,12 +57,18 @@
             padding: 0;
         }
         .skills ul li {
-            background: #007bff;
-            color: white;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-        }
+    background: #007bff;
+    color: white;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.skills ul li:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
         .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 10px;
@@ -190,10 +196,7 @@
 
     <section id="kontakt">
         <h2>Kontakt</h2>
-        <form class="contact-form">
-            <textarea name="message" rows="5" placeholder="Deine Nachricht" required></textarea>
-            <button type="submit">Absenden</button>
-        </form>
+        <p>Für Anfragen kontaktieren Sie mich unter: <a href="mailto:kevin.spitzli@hotmail.com">kevin.spitzli@hotmail.com</a></p>
     </section>
 
     <!-- Social Media Links -->
